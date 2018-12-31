@@ -3,7 +3,6 @@ configuration: Release
 platform: Any CPU
 skip_tags: true
 
-for:
 -
     branches:
         only:
@@ -74,7 +73,6 @@ artifacts:
 - path: 'bin\Release\DotFramework.DynamicQuery.*.nupkg'
   name: 'DotFramework.DynamicQuery'
 
-for:
 -
     branches:
         only:
