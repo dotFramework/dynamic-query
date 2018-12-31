@@ -1,0 +1,60 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicQuery", "Src\DynamicQuery\DynamicQuery.csproj", "{2F151DD3-8562-4006-9F99-498CB977EE30}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicQuery.Oracle", "Src\DynamicQuery.Oracle\DynamicQuery.Oracle.csproj", "{1DE7E8A1-1BE6-4AB9-BE5F-F443E59614EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicQuery.SqlServer", "Src\DynamicQuery.SqlServer\DynamicQuery.SqlServer.csproj", "{33CD5B93-5FAB-45D9-A44C-85E1B756FEDF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5D8F1A2F-928B-4D5F-8A35-0253E8BCA162}"
+	ProjectSection(SolutionItems) = preProject
+		..\appveyor.yml = ..\appveyor.yml
+		..\package.props = ..\package.props
+		..\version.props = ..\version.props
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicQuery.Metadata", "Src\DynamicQuery.Metadata\DynamicQuery.Metadata.csproj", "{A7E42CE5-C76C-4F0D-9C8B-4BFD5E48A221}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{F4A7D730-6822-4AB4-9B4E-3C50E954B241}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicQuery.Tests", "Tests\DynamicQuery.Tests\DynamicQuery.Tests.csproj", "{A7256CE3-F4B9-4ED0-9DE1-6E1086FB2BC2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F151DD3-8562-4006-9F99-498CB977EE30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F151DD3-8562-4006-9F99-498CB977EE30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F151DD3-8562-4006-9F99-498CB977EE30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F151DD3-8562-4006-9F99-498CB977EE30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DE7E8A1-1BE6-4AB9-BE5F-F443E59614EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DE7E8A1-1BE6-4AB9-BE5F-F443E59614EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DE7E8A1-1BE6-4AB9-BE5F-F443E59614EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DE7E8A1-1BE6-4AB9-BE5F-F443E59614EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33CD5B93-5FAB-45D9-A44C-85E1B756FEDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33CD5B93-5FAB-45D9-A44C-85E1B756FEDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33CD5B93-5FAB-45D9-A44C-85E1B756FEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33CD5B93-5FAB-45D9-A44C-85E1B756FEDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7E42CE5-C76C-4F0D-9C8B-4BFD5E48A221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7E42CE5-C76C-4F0D-9C8B-4BFD5E48A221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7E42CE5-C76C-4F0D-9C8B-4BFD5E48A221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7E42CE5-C76C-4F0D-9C8B-4BFD5E48A221}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7256CE3-F4B9-4ED0-9DE1-6E1086FB2BC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7256CE3-F4B9-4ED0-9DE1-6E1086FB2BC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7256CE3-F4B9-4ED0-9DE1-6E1086FB2BC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7256CE3-F4B9-4ED0-9DE1-6E1086FB2BC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A7256CE3-F4B9-4ED0-9DE1-6E1086FB2BC2} = {F4A7D730-6822-4AB4-9B4E-3C50E954B241}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65FAA3A5-1346-4CDD-A4D2-2C675B4BEBCA}
+	EndGlobalSection
+EndGlobal

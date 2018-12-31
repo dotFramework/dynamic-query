@@ -1,0 +1,37 @@
+<Project>
+  <Import Project="version.props" />
+
+  <PropertyGroup>
+    <Version>$(MajorVersion).$(MinorVersion).$(ReleaseVersion)</Version>
+    <PreAssemblyName>DotFramework</PreAssemblyName>
+    <ProjectName>DynamicQuery</ProjectName>
+    <FullProjectName>$(PreAssemblyName).$(ProjectName)</FullProjectName>
+    
+    <SemanticVersionSuffix>-rc</SemanticVersionSuffix>
+    <PackageVersion>$(Version)$(SemanticVersionSuffix)</PackageVersion>
+    <PackageReleaseNotes>This package is distributed as .NET Standard, .NET Core, .NET Framework package.</PackageReleaseNotes>
+    
+    <PrePackageName>DotFramework</PrePackageName>
+    <Authors>dotFramework</Authors>
+    <PackageIconUrl>https://www.dotframework.net/Content/img/logo-128.png</PackageIconUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://www.dotFramework.net/</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    
+    <RepositoryUrl>https://github.com/dotFramework/dynamic-query</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutputPath>$(SolutionDir)..\bin\$(Configuration)</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <DebugType>Full</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+</Project>

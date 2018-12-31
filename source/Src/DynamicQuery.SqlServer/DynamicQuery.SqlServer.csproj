@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\..\package.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>net40;net45;net46;net47;netstandard2.0;netcoreapp2.0;netcoreapp2.1;netcoreapp2.2</TargetFrameworks>
+
+    <AssemblyVersion>$(MajorVersion).0.0.0</AssemblyVersion>
+    <FileVersion>$(Version).$(Revision)</FileVersion>
+
+    <AssemblyName>$(FullProjectName).SqlServer</AssemblyName>
+    <RootNamespace>$(FullProjectName).SqlServer</RootNamespace>
+    <AssemblyTitle>dotFramework Dynamic Query Generator for SqlServer</AssemblyTitle>
+
+    <PackageId>$(PrePackageName).$(ProjectName).SqlServer</PackageId>
+    <Title>dotFramework Dynamic Query Generator for SqlServer</Title>
+    <Description>dotFramework Dynamic Query Generator for SqlServer</Description>
+    <Summary>dotFramework Dynamic Query Generator for SqlServer</Summary>
+    <PackageTags>dotFramework Dynamic Query Generator for SqlServer</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Filter\ve-ADBB.tmp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DynamicQuery\DynamicQuery.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(TargetFramework.StartsWith('netstandard')) OR $(TargetFramework.StartsWith('netcoreapp'))">
+  </ItemGroup>
+
+  <ItemGroup Condition="!$(TargetFramework.StartsWith('netstandard')) AND !$(TargetFramework.StartsWith('netcoreapp'))">
+  </ItemGroup>
+</Project>
