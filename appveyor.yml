@@ -46,15 +46,9 @@ for:
         - ps: gitversion /output buildserver
         - ps: $env:major_version = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/MajorVersion" | Select-Object -ExpandProperty Node).InnerText
         - ps: $env:minor_version = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/MinorVersion" | Select-Object -ExpandProperty Node).InnerText
-        - ps: $env:release_version = [string]([int]((Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/ReleaseVersion" | Select-Object -ExpandProperty Node).InnerText) + 1)
-        - ps: $env:revision = $env:GitVersion_CommitsSinceVersionSource
+        - ps: $env:release_version = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/ReleaseVersion" | Select-Object -ExpandProperty Node).InnerText
+        - ps: $env:revision = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/Revision" | Select-Object -ExpandProperty Node).InnerText
         - ps: Update-AppveyorBuild -Version "$env:major_version.$env:minor_version.$env:release_version.$env:revision.$env:APPVEYOR_BUILD_NUMBER"
-        - ps: $xReleaseVersion = Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/ReleaseVersion"
-        - ps: $xReleaseVersion.Node.InnerText = $env:release_version
-        - ps: $xReleaseVersion.Node.OwnerDocument.Save($xReleaseVersion.Path)
-        - ps: $xRevision = Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/Revision"
-        - ps: $xRevision.Node.InnerText = $env:revision
-        - ps: $xRevision.Node.OwnerDocument.Save($xRevision.Path)
         - ps: $xPackageSemanticVersionSuffix = Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/PackageSemanticVersionSuffix"
         - ps: $xPackageSemanticVersionSuffix.Node.InnerText = "-beta"
         - ps: $xPackageSemanticVersionSuffix.Node.OwnerDocument.Save($xPackageSemanticVersionSuffix.Path)
