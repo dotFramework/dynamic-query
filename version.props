@@ -2,8 +2,8 @@
   <PropertyGroup>
     <MajorVersion>3</MajorVersion>
     <MinorVersion>0</MinorVersion>
-    <ReleaseVersion>17</ReleaseVersion>
-    <Revision>44</Revision>
+    <ReleaseVersion>18</ReleaseVersion>
+    <Revision>46</Revision>
     
     <PackageSemanticVersionSuffix>-alpha</PackageSemanticVersionSuffix>
   </PropertyGroup>
