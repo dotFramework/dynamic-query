@@ -47,9 +47,3 @@ on_success:
   - git pull
   - git commit -m "Revision update by AppVeyor [ci skip]" -- version.props
   - git push
-
-  -
-  branches:
-    only:
-      - stable
-        - dotnet nuget push bin\Release\DotFramework.DynamicQuery.*.nupkg -k $env:nuget_api_key -s https://api.nuget.org/v3/index.json
