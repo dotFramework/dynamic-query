@@ -49,7 +49,6 @@ for:
 
     on_success:
         - ps: dotnet nuget push bin\Release\DotFramework.DynamicQuery.*.nupkg -k $env:nuget_api_key -s https://api.nuget.org/v3/index.json
-        - ps: dotnet nuget push bin\Release\DotFramework.DynamicQuery.*.snupkg -k $env:nuget_api_key -s https://api.nuget.org/v3/index.json
 
 dotnet_csproj:
     patch: false
