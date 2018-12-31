@@ -7,12 +7,10 @@
     <ProjectName>DynamicQuery</ProjectName>
     <FullProjectName>$(PreAssemblyName).$(ProjectName)</FullProjectName>
 
-    <IncludeSource>True</IncludeSource>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
-    <SemanticVersionSuffix>-rc</SemanticVersionSuffix>
-    <PackageVersion>$(Version)$(SemanticVersionSuffix)</PackageVersion>
+    <PackageVersion>$(Version)$(PackageSemanticVersionSuffix)</PackageVersion>
     <PackageReleaseNotes>This package is distributed as .NET Standard, .NET Core, .NET Framework package.</PackageReleaseNotes>
     
     <PrePackageName>DotFramework</PrePackageName>

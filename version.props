@@ -4,5 +4,7 @@
     <MinorVersion>0</MinorVersion>
     <ReleaseVersion>16</ReleaseVersion>
     <Revision>41</Revision>
+    
+    <PackageSemanticVersionSuffix>-alpha</PackageSemanticVersionSuffix>
   </PropertyGroup>
 </Project>
