@@ -9,6 +9,7 @@
 
     <IncludeSource>True</IncludeSource>
     <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
     <SemanticVersionSuffix>-rc</SemanticVersionSuffix>
     <PackageVersion>$(Version)$(SemanticVersionSuffix)</PackageVersion>
