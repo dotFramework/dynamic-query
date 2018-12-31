@@ -48,7 +48,7 @@ for:
         - ps: Update-AppveyorBuild -Version "$env:major_version.$env:minor_version.$env:release_version.$env:revision.$env:APPVEYOR_BUILD_NUMBER"
 
     on_success:
-        - dotnet nuget push bin\Release\DotFramework.DynamicQuery.*.nupkg -k $env:nuget_api_key -s https://api.nuget.org/v3/index.json
+        - ps: dotnet nuget push bin\Release\DotFramework.DynamicQuery.*.nupkg -k $env:nuget_api_key -s https://api.nuget.org/v3/index.json
 
 dotnet_csproj:
     patch: false
