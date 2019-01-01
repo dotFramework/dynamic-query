@@ -17,8 +17,8 @@ install:
     - ps: $xRevision.Node.InnerText = $env:revision
     - ps: $xRevision.Node.OwnerDocument.Save($xRevision.Path)
     - ps: $env:git_release_version = "$env:major_version.$env:minor_version.$env:release_version$env:package_semantic_version_suffix"
-    - ps: $env:is_pre_release = If ($env:package_semantic_version_suffix -eq "") { "false" } Else { "true" }
-    - ps: $env:release_desc = If ($env:package_semantic_version_suffix -like "*-rc*") { "Release Candidate Version $env:major_version.$env:minor_version.$env:release_version" } Else { "Release Version $env:major_version.$env:minor_version.$env:release_version" }
+    - ps: $env:is_pre_release = If ($env:package_semantic_version_suffix -eq $null -Or $env:package_semantic_version_suffix -eq "") { "false" } Else { "true" }
+    - ps: $env:release_desc = If ($env:git_release_version -like "*-rc*") { "Release Candidate Version $env:major_version.$env:minor_version.$env:release_version" } Else { "Release Version $env:major_version.$env:minor_version.$env:release_version" }
 
 dotnet_csproj:
     patch: false
