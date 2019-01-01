@@ -1,6 +1,7 @@
 image: Visual Studio 2017
 configuration: Release
 platform: Any CPU
+skip_tags: true
 
 install:
     - ps: $env:version_file_path = ".\version.props"
@@ -15,7 +16,7 @@ install:
     - ps: $xRevision.Node.InnerText = $env:revision
     - ps: $xRevision.Node.OwnerDocument.Save($xRevision.Path)
     - ps: $env:is_pre_release = If ($env:package_semantic_version_suffix -eq "") { "false" } Else { "true" }
-    - ps: $env:release_desc = If ($env:package_semantic_version_suffix -like "*-rc*") { "DynamicQuery Release Candidate Version $env:major_version.$env:minor_version.$env:release_version" } Else { "DynamicQuery Release Version $env:major_version.$env:minor_version.$env:release_version" }
+    - ps: $env:release_desc = If ($env:package_semantic_version_suffix -like "*-rc*") { "Release Candidate Version $env:major_version.$env:minor_version.$env:release_version" } Else { "Release Version $env:major_version.$env:minor_version.$env:release_version" }
 
 dotnet_csproj:
     patch: false
@@ -42,8 +43,8 @@ artifacts:
       name: 'Nuget Symbols'
 
 deploy:
-  release: dynamic-query-v$(major_version).$(minor_version).$(release_version)$(package_semantic_version_suffix)
-  tag: $(APPVEYOR_REPO_TAG_NAME)
+  release: V$(major_version).$(minor_version).$(release_version)$(package_semantic_version_suffix)
+  tag: V$(major_version).$(minor_version).$(release_version)$(package_semantic_version_suffix)
   description: $(release_desc)
   provider: GitHub
   auth_token: $(github_access_token)
