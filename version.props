@@ -5,6 +5,6 @@
     <ReleaseVersion>19</ReleaseVersion>
     <Revision>49</Revision>
     
-    <PackageSemanticVersionSuffix>-alpha</PackageSemanticVersionSuffix>
+    <PackageSemanticVersionSuffix>-rc</PackageSemanticVersionSuffix>
   </PropertyGroup>
 </Project>
