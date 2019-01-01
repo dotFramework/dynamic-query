@@ -1,6 +1,7 @@
 image: Visual Studio 2017
 configuration: Release
 platform: Any CPU
+skip_branch_with_pr: true
 skip_tags: true
 
 install:
@@ -43,8 +44,6 @@ artifacts:
       name: 'Nuget Symbols'
 
 deploy:
-  release: V$(major_version).$(minor_version).$(release_version)$(package_semantic_version_suffix)
-  tag: V$(major_version).$(minor_version).$(release_version)$(package_semantic_version_suffix)
   description: $(release_desc)
   provider: GitHub
   auth_token: $(github_access_token)
