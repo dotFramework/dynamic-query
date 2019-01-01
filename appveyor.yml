@@ -3,95 +3,20 @@ configuration: Release
 platform: Any CPU
 skip_tags: true
 
-for:
--
-    branches:
-        only:
-            - develop
-
-    install:
-        - ps: $env:version_file_path = ".\version.props"
-        - ps: gitversion /output buildserver
-        - ps: $env:major_version = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/MajorVersion" | Select-Object -ExpandProperty Node).InnerText
-        - ps: $env:minor_version = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/MinorVersion" | Select-Object -ExpandProperty Node).InnerText
-        - ps: $env:release_version = [string]([int]((Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/ReleaseVersion" | Select-Object -ExpandProperty Node).InnerText) + 1)
-        - ps: $env:revision = $env:GitVersion_CommitsSinceVersionSource
-        - ps: Update-AppveyorBuild -Version "$env:major_version.$env:minor_version.$env:release_version.$env:revision.$env:APPVEYOR_BUILD_NUMBER"
-        - ps: $xReleaseVersion = Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/ReleaseVersion"
-        - ps: $xReleaseVersion.Node.InnerText = $env:release_version
-        - ps: $xReleaseVersion.Node.OwnerDocument.Save($xReleaseVersion.Path)
-        - ps: $xRevision = Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/Revision"
-        - ps: $xRevision.Node.InnerText = $env:revision
-        - ps: $xRevision.Node.OwnerDocument.Save($xRevision.Path)
-        - ps: $xPackageSemanticVersionSuffix = Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/PackageSemanticVersionSuffix"
-        - ps: $xPackageSemanticVersionSuffix.Node.InnerText = "-alpha"
-        - ps: $xPackageSemanticVersionSuffix.Node.OwnerDocument.Save($xPackageSemanticVersionSuffix.Path)
-
-    on_success:
-        - ps: git config --global credential.helper store
-        - ps: Add-Content "$HOME\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
-        - ps: git config --global user.email "$env:github_email"
-        - ps: git config --global user.name "$env:github_name"
-        - ps: git pull
-        - git commit -m "Revision update by AppVeyor [ci skip]" -- version.props
-        - git push
-
--
-    branches:
-        only:
-            - master
-
-    install:
-        - ps: $env:version_file_path = ".\version.props"
-        - ps: gitversion /output buildserver
-        - ps: $env:major_version = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/MajorVersion" | Select-Object -ExpandProperty Node).InnerText
-        - ps: $env:minor_version = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/MinorVersion" | Select-Object -ExpandProperty Node).InnerText
-        - ps: $env:release_version = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/ReleaseVersion" | Select-Object -ExpandProperty Node).InnerText
-        - ps: $env:revision = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/Revision" | Select-Object -ExpandProperty Node).InnerText
-        - ps: Update-AppveyorBuild -Version "$env:major_version.$env:minor_version.$env:release_version.$env:revision.$env:APPVEYOR_BUILD_NUMBER"
-        - ps: $xPackageSemanticVersionSuffix = Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/PackageSemanticVersionSuffix"
-        - ps: $xPackageSemanticVersionSuffix.Node.InnerText = "-beta"
-        - ps: $xPackageSemanticVersionSuffix.Node.OwnerDocument.Save($xPackageSemanticVersionSuffix.Path)
-
--
-    branches:
-        only:
-            - /rc-.*/
-
-    install:
-        - ps: $env:version_file_path = ".\version.props"
-        - ps: gitversion /output buildserver
-        - ps: $env:major_version = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/MajorVersion" | Select-Object -ExpandProperty Node).InnerText
-        - ps: $env:minor_version = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/MinorVersion" | Select-Object -ExpandProperty Node).InnerText
-        - ps: $env:release_version = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/ReleaseVersion" | Select-Object -ExpandProperty Node).InnerText
-        - ps: $env:revision = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/Revision" | Select-Object -ExpandProperty Node).InnerText
-        - ps: Update-AppveyorBuild -Version "$env:major_version.$env:minor_version.$env:release_version.$env:revision.$env:APPVEYOR_BUILD_NUMBER"
-        - ps: $xPackageSemanticVersionSuffix = Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/PackageSemanticVersionSuffix"
-        - ps: $xPackageSemanticVersionSuffix.Node.InnerText = "-rc"
-        - ps: $xPackageSemanticVersionSuffix.Node.OwnerDocument.Save($xPackageSemanticVersionSuffix.Path)
-
-    on_success:
-        - ps: # dotnet nuget push bin\Release\DotFramework.DynamicQuery.*.nupkg -k $env:nuget_api_key -s https://api.nuget.org/v3/index.json
-
--
-    branches:
-        only:
-            - /release-.*/
-
-    install:
-        - ps: $env:version_file_path = ".\version.props"
-        - ps: gitversion /output buildserver
-        - ps: $env:major_version = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/MajorVersion" | Select-Object -ExpandProperty Node).InnerText
-        - ps: $env:minor_version = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/MinorVersion" | Select-Object -ExpandProperty Node).InnerText
-        - ps: $env:release_version = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/ReleaseVersion" | Select-Object -ExpandProperty Node).InnerText
-        - ps: $env:revision = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/Revision" | Select-Object -ExpandProperty Node).InnerText
-        - ps: Update-AppveyorBuild -Version "$env:major_version.$env:minor_version.$env:release_version.$env:revision.$env:APPVEYOR_BUILD_NUMBER"
-        - ps: $xPackageSemanticVersionSuffix = Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/PackageSemanticVersionSuffix"
-        - ps: $xPackageSemanticVersionSuffix.Node.InnerText = ""
-        - ps: $xPackageSemanticVersionSuffix.Node.OwnerDocument.Save($xPackageSemanticVersionSuffix.Path)
-
-    on_success:
-        - ps: # dotnet nuget push bin\Release\DotFramework.DynamicQuery.*.nupkg -k $env:nuget_api_key -s https://api.nuget.org/v3/index.json
+install:
+    - ps: $env:version_file_path = ".\version.props"
+    - ps: gitversion /output buildserver
+    - ps: $env:major_version = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/MajorVersion" | Select-Object -ExpandProperty Node).InnerText
+    - ps: $env:minor_version = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/MinorVersion" | Select-Object -ExpandProperty Node).InnerText
+    - ps: $env:release_version = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/ReleaseVersion" | Select-Object -ExpandProperty Node).InnerText
+    - ps: $env:revision = $env:GitVersion_CommitsSinceVersionSource
+    - ps: $env:package_semantic_version_suffix = (Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/PackageSemanticVersionSuffix" | Select-Object -ExpandProperty Node).InnerText
+    - ps: Update-AppveyorBuild -Version "$env:major_version.$env:minor_version.$env:release_version.$env:revision-build.$env:APPVEYOR_BUILD_NUMBER"
+    - ps: $xRevision = Select-Xml -Path $env:version_file_path -XPath "/Project/PropertyGroup/Revision"
+    - ps: $xRevision.Node.InnerText = $env:revision
+    - ps: $xRevision.Node.OwnerDocument.Save($xRevision.Path)
+    - ps: $env:is_pre_release = If ($env:package_semantic_version_suffix -eq "") { "false" } Else { "true" }
+    - ps: $env:release_desc = If ($env:package_semantic_version_suffix -like "*-rc*") { "DynamicQuery Release Candidate Version $env:major_version.$env:minor_version.$env:release_version" } Else { "DynamicQuery Release Version $env:major_version.$env:minor_version.$env:release_version" }
 
 dotnet_csproj:
     patch: false
@@ -113,3 +38,23 @@ after_test:
 artifacts:
     - path: 'bin\Release\DotFramework.DynamicQuery.*.nupkg'
       name: 'DotFramework.DynamicQuery'
+
+deploy:
+  release: dynamic-query-v$(major_version).$(minor_version).$(release_version)$(package_semantic_version_suffix)
+  description: $(release_desc)
+  provider: GitHub
+  auth_token: $(github_access_token)
+  artifact: /.*\.nupkg/
+  draft: false
+  prerelease: $(is_pre_release)
+  on:
+    branch: master
+    APPVEYOR_REPO_TAG: true
+
+-
+    branches:
+        only:
+            - master
+
+    on_success:
+        - ps: # dotnet nuget push bin\Release\DotFramework.DynamicQuery.*.nupkg -k $env:nuget_api_key -s https://api.nuget.org/v3/index.json
