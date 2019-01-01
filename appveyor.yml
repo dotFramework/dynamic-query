@@ -2,7 +2,7 @@ image: Visual Studio 2017
 configuration: Release
 platform: Any CPU
 skip_branch_with_pr: true
-skip_tags: true
+skip_tags: true 
 
 install:
     - ps: $env:version_file_path = ".\version.props"
