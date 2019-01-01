@@ -1,11 +1,11 @@
 <Project>
   <PropertyGroup>
     <MajorVersion>3</MajorVersion>
-    <MinorVersion>0</MinorVersion>
-    <ReleaseVersion>20</ReleaseVersion>
+    <MinorVersion>1</MinorVersion>
+    <ReleaseVersion>0</ReleaseVersion>
     <Revision>0</Revision>
 
-    <PackageSemanticVersionSuffix></PackageSemanticVersionSuffix>
-    <!--<PackageSemanticVersionSuffix>-build.$(Revision)</PackageSemanticVersionSuffix>-->
+    <!--<PackageSemanticVersionSuffix></PackageSemanticVersionSuffix>-->
+    <PackageSemanticVersionSuffix>-alpha.$(Revision)</PackageSemanticVersionSuffix>
   </PropertyGroup>
 </Project>
