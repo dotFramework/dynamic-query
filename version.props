@@ -5,7 +5,7 @@
     <ReleaseVersion>0</ReleaseVersion>
     <Revision>0</Revision>
 
-    <PackageSemanticVersionSuffix>-rc1</PackageSemanticVersionSuffix>
+    <PackageSemanticVersionSuffix></PackageSemanticVersionSuffix>
     <!--<PackageSemanticVersionSuffix>-alpha.$(Revision)</PackageSemanticVersionSuffix>-->
   </PropertyGroup>
 </Project>
