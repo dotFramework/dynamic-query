@@ -6,6 +6,6 @@
     <Revision>0</Revision>
 
     <!--<PackageSemanticVersionSuffix>-rc</PackageSemanticVersionSuffix>-->
-    <PackageSemanticVersionSuffix>-build.$(Revision)</PackageSemanticVersionSuffix>
+    <PackageSemanticVersionSuffix>-alpha.$(Revision)</PackageSemanticVersionSuffix>
   </PropertyGroup>
 </Project>
