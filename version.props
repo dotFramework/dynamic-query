@@ -4,7 +4,8 @@
     <MinorVersion>0</MinorVersion>
     <ReleaseVersion>19</ReleaseVersion>
     <Revision>49</Revision>
-    
+
     <PackageSemanticVersionSuffix>-rc</PackageSemanticVersionSuffix>
+    <!--<PackageSemanticVersionSuffix>-build.$(Revision)</PackageSemanticVersionSuffix>-->
   </PropertyGroup>
 </Project>
