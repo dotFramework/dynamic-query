@@ -37,14 +37,17 @@ after_test:
 
 artifacts:
     - path: 'bin\Release\DotFramework.DynamicQuery.*.nupkg'
-      name: 'DotFramework.DynamicQuery'
+      name: 'Nuget Packages'
+
+    - path: 'bin\Release\DotFramework.DynamicQuery.*.snupkg'
+      name: 'Nuget Symbols'
 
 deploy:
   release: dynamic-query-v$(major_version).$(minor_version).$(release_version)$(package_semantic_version_suffix)
   description: $(release_desc)
   provider: GitHub
   auth_token: $(github_access_token)
-  artifact: /.*\.nupkg/
+  artifact: /.*\.nupkg/, /.*\.snupkg/
   draft: false
   prerelease: $(is_pre_release)
   on:
