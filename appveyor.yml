@@ -51,6 +51,7 @@ deploy:
     branch: master
     APPVEYOR_REPO_TAG: true
 
+for:
 -
     branches:
         only:
