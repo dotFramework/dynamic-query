@@ -5,6 +5,8 @@
 
 # Dynamic Query
 
+This library is for generating Sql Server or Oracle queries using Expressions in strong named format. For creating Sql server or Oracle queries you do not need to change any of your expressions but only QueryEvaluator type.
+
 ## Installation:
 
   Install DotFramework.DynamicQuery nuget package
@@ -27,11 +29,63 @@
   var OracleSimpleSelectQuery = OracleSimpleSelect.toString();
 ```
 
+## Select with Where
+
+```bash
+  var builder = SelectQueryBuilder
+                .Initialize()
+                .From<TestEntity>()
+                .Where(n => n.Name.Contains("Yes"));
+```
+Result: 
+
+SELECT *
+FROM [TestEntity]
+WHERE [TestEntity].[Name] LIKE N'%Yes%'
+
 ## Simple Join:
 
 ```bash
   var builder = SelectQueryBuilder
                 .Initialize()
                 .From<StudentEntity>()
-                .InnerJoin(s => s.TestEntitytID, (TestEntity t) => t.ID);
+                .InnerJoin(s => s.TestEntitytID, (TestEntity t) => t.ID)
+                .Select((s, t) => new { s.ID, t.Name });
 ```                
+
+Result:
+
+SELECT [StudentEntity].[ID], [TestEntity].[Name]
+FROM [StudentEntity] INNER JOIN [TestEntity] ON [StudentEntity].[TestEntitytID] = [TestEntity].[ID] 
+
+## Simple Delete
+
+```bash
+  var builder = DeleteQueryBuilder<StudentEntity>
+                .Initialize()
+                .Where(s => s.ID == 1);
+
+            var res = new SqlServerDeleteQueryEvaluator(builder.Query);
+```
+
+Result:
+
+DELETE FROM [StudentEntity]
+WHERE [StudentEntity].[ID] = 1
+
+## Simple Update
+
+```bash
+  var builder = UpdateQueryBuilder<TestEntity>
+                .Initialize()
+                .Set(s => new TestEntity { Name = "test" })
+                .Where(s => s.ID == 1);
+
+            var res = new SqlServerUpdateQueryEvaluator(builder.Query);
+```
+
+Result:
+  
+  UPDATE ["TestEntity"]
+SET [Name] = N'test'
+WHERE [TestEntity].[ID] = 1
