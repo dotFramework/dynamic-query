@@ -3,9 +3,8 @@
     <MajorVersion>3</MajorVersion>
     <MinorVersion>1</MinorVersion>
     <ReleaseVersion>1</ReleaseVersion>
-    <Revision>0</Revision>
+    <Revision>1</Revision>
 
-    <!--<PackageSemanticVersionSuffix></PackageSemanticVersionSuffix>-->
     <PackageSemanticVersionSuffix>-alpha.$(Revision)</PackageSemanticVersionSuffix>
   </PropertyGroup>
 </Project>
