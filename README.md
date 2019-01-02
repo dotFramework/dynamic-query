@@ -8,17 +8,16 @@
 This library is for generating Sql Server or Oracle queries using Expressions in strong named format. For creating Sql server or Oracle queries you do not need to change any of your expressions but only QueryEvaluator type.
 
 ## Installation:
+  Install the nuget package
 
-  Install DotFramework.DynamicQuery nuget package
+  [![NuGet Release](https://img.shields.io/nuget/v/DotFramework.DynamicQuery.SqlServer.svg?style=for-the-badge&label=For%20Sql%20Server&colorB=green)](https://www.nuget.org/packages/DotFramework.DynamicQuery.SqlServer)
   
-  For Sql Install DotFramework.DynamicQuery.SqlServer nuget package
-  
-  For Oracle Install DotFramework.DynamicQuery.Oracle nuget package
+  [![NuGet Release](https://img.shields.io/nuget/v/DotFramework.DynamicQuery.Oracle.svg?style=for-the-badge&label=For%20Oracle&colorB=blue)](https://www.nuget.org/packages/DotFramework.DynamicQuery.Oracle)
   
 ## Simpe Select:
 
 ```bash
-   var builder = SelectQueryBuilder
+  var builder = SelectQueryBuilder
                 .Initialize()
                 .From<TestEntity>();
   
