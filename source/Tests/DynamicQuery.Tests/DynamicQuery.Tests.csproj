@@ -10,7 +10,7 @@
 
     <AssemblyName>$(FullProjectName).Tests</AssemblyName>
     <RootNamespace>$(FullProjectName).Tests</RootNamespace>
-    <AssemblyTitle>dotFramework Dynamic Query Generator Tests</AssemblyTitle>
+    <AssemblyTitle>dotFramework Dynamic Query Builder Tests</AssemblyTitle>
   </PropertyGroup>
 
   <ItemGroup>

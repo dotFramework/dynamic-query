@@ -9,13 +9,13 @@
 
     <AssemblyName>$(FullProjectName).Metadata</AssemblyName>
     <RootNamespace>$(FullProjectName).Metadata</RootNamespace>
-    <AssemblyTitle>dotFramework Dynamic Query Generator Metadata</AssemblyTitle>
+    <AssemblyTitle>dotFramework Dynamic Query Builder Metadata</AssemblyTitle>
 
     <PackageId>$(PrePackageName).$(ProjectName).Metadata</PackageId>
-    <Title>dotFramework Dynamic Query Generator Metadata</Title>
-    <Description>dotFramework Dynamic Query Generator Metadata</Description>
-    <Summary>dotFramework Dynamic Query Generator Metadata</Summary>
-    <PackageTags>dotFramework Dynamic Query Generator Metadata</PackageTags>
+    <Title>dotFramework Dynamic Query Builder Metadata</Title>
+    <Description>dotFramework Dynamic Query Builder Metadata</Description>
+    <Summary>dotFramework Dynamic Query Builder Metadata</Summary>
+    <PackageTags>dotFramework Dynamic Query Builder Metadata</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

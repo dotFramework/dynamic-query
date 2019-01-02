@@ -9,17 +9,18 @@
 
     <AssemblyName>$(FullProjectName)</AssemblyName>
     <RootNamespace>$(FullProjectName)</RootNamespace>
-    <AssemblyTitle>dotFramework Dynamic Query Generator</AssemblyTitle>
+    <AssemblyTitle>dotFramework Dynamic Query Builder</AssemblyTitle>
 
     <PackageId>$(PrePackageName).DynamicQuery</PackageId>
-    <Title>dotFramework Dynamic Query Generator</Title>
-    <Description>dotFramework Dynamic Query Generator</Description>
-    <Summary>dotFramework Dynamic Query Generator</Summary>
-    <PackageTags>dotFramework Dynamic Query Generator</PackageTags>
+    <Title>dotFramework Dynamic Query Builder</Title>
+    <Description>dotFramework Dynamic Query Builder</Description>
+    <Summary>dotFramework Dynamic Query Builder</Summary>
+    <PackageTags>dotFramework Dynamic Query Builder</PackageTags>
   </PropertyGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\DynamicQuery.Metadata\DynamicQuery.Metadata.csproj" />
+    <PackageReference Include="DotFramework.Core" Version="3.0.1" />
 
     <PackageReference Include="Newtonsoft.Json" Version="12.*" />
   </ItemGroup>
@@ -28,9 +29,5 @@
   </ItemGroup>
 
   <ItemGroup Condition="!$(TargetFramework.StartsWith('netstandard')) AND !$(TargetFramework.StartsWith('netcoreapp'))">
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
   </ItemGroup>
 </Project>

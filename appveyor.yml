@@ -45,7 +45,7 @@ artifacts:
       name: 'Nuget Symbols'
 
 deploy:
-  release: V$(git_release_version)
+  release: $(git_release_version)
   description: $(release_desc)
   provider: GitHub
   auth_token: $(github_access_token)

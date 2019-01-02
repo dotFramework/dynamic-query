@@ -9,13 +9,13 @@
 
     <AssemblyName>$(FullProjectName).Oracle</AssemblyName>
     <RootNamespace>$(FullProjectName).Oracle</RootNamespace>
-    <AssemblyTitle>dotFramework Dynamic Query Generator for Oracle</AssemblyTitle>
+    <AssemblyTitle>dotFramework Dynamic Query Builder for Oracle</AssemblyTitle>
 
     <PackageId>$(PrePackageName).$(ProjectName).Oracle</PackageId>
-    <Title>dotFramework Dynamic Query Generator for Oracle</Title>
-    <Description>dotFramework Dynamic Query Generator for Oracle</Description>
-    <Summary>dotFramework Dynamic Query Generator for Oracle</Summary>
-    <PackageTags>dotFramework Dynamic Query Generator for Oracle</PackageTags>
+    <Title>dotFramework Dynamic Query Builder for Oracle</Title>
+    <Description>dotFramework Dynamic Query Builder for Oracle</Description>
+    <Summary>dotFramework Dynamic Query Builder for Oracle</Summary>
+    <PackageTags>dotFramework Dynamic Query Builder Oracle</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
