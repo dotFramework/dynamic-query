@@ -1,3 +1,4 @@
+using DotFramework.Core;
 using System.Linq.Expressions;
 
 namespace DotFramework.DynamicQuery
