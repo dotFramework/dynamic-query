@@ -26,3 +26,12 @@
   var OracleSimpleSelect = new OracleSelectQueryEvaluator(builder.Query);
   var OracleSimpleSelectQuery = OracleSimpleSelect.toString();
 ```
+
+## Simple Join:
+
+```bash
+  var builder = SelectQueryBuilder
+                .Initialize()
+                .From<StudentEntity>()
+                .InnerJoin(s => s.TestEntitytID, (TestEntity t) => t.ID);
+```                
