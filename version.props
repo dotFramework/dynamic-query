@@ -2,9 +2,9 @@
   <PropertyGroup>
     <MajorVersion>3</MajorVersion>
     <MinorVersion>1</MinorVersion>
-    <ReleaseVersion>1</ReleaseVersion>
+    <ReleaseVersion>2</ReleaseVersion>
     <Revision>1</Revision>
 
-    <PackageSemanticVersionSuffix></PackageSemanticVersionSuffix>
+    <PackageSemanticVersionSuffix>-alpha.$(Revision)</PackageSemanticVersionSuffix>
   </PropertyGroup>
 </Project>
